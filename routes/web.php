@@ -45,3 +45,6 @@ Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset')->name('front_password.email');
 Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('front_password.reset');
 Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+
+Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');

@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('front_password.request') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -30,6 +30,7 @@
                                 @endif
                             </div>
                         </div>
+                         <input type="hidden" name="_token" value="{{ Session::token() }}"> 
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
